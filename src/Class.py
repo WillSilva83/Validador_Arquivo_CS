@@ -1,5 +1,9 @@
 import pandas as pd 
 
+## TO DO LIST 
+
+# Generalizar a verificação se coluna existe 
+
 class CSVReader:
     def __init__(self) -> None:
         pass
@@ -17,7 +21,7 @@ class CSVReader:
 class ValidaData:
     def __init__(self) -> None:
         pass
-
+    
     def validar_cpf(self, cpf: str) -> bool:
     
         # Remover caracteres não numéricos
@@ -174,3 +178,11 @@ class ValidaData:
 
         return df_join_nulos
 
+    def agregar_soma(self, df: pd.DataFrame, col_group_by: str, columa_sum: str) -> pd.DataFrame: 
+
+        if col_group_by not in df.columns or columa_sum not in df.columns:
+            raise ValueError(f"A coluna '{col_group_by}' não existe no DataFrame.")
+        
+        df_return_agg = df.groupby(col_group_by)[columa_sum].sum().reset_index()
+        
+        return df_return_agg 

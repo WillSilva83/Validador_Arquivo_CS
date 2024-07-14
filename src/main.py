@@ -36,6 +36,11 @@ if __name__ == '__main__':
 
     qtd_validacao_cnpj = valida_data.agregar_contar(data_file, 'CNPJ')
 
+    ## SOMA DE VALOR POR ALGO 
+
+    df_agg_soma = valida_data.agregar_soma(data_file,'RAZAO_SOCIAL', 'VL_CREDITO')
+
+
     #print(qtd_validacao.head())
 
     ## VALIDACAO DE JOINS 
